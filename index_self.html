@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style_self.css">
+</head>
+
+<body>
+  <header>按键导航去网址demo</header>
+  <main>
+    <div id="main"></div>
+  </main>
+  <footer></footer>
+</body>
+<script>
+  var keys = [['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'], ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'], ['z', 'x', 'c', 'v', 'b', 'n', 'm']]
+  var webs = {
+    'q': 'http://qq.com',
+    'w': 'http://weibo.com',
+    'e': 'http://ebay.com',
+    'r': 'http://renren.com',
+    't': 'http://twitter.com'
+  }
+
+  var index = 0
+  var storage = localStorage.getItem('newWeb')
+  if (storage) {
+    webs = JSON.parse(storage)
+  }
+
+  while (index < keys.length) {
+    div = document.createElement('div')
+    main.appendChild(div)
+    var index2 = 0
+    while (index2 < keys[index].length) {
+      var specificKey = keys[index][index2]
+      kbd = document.createElement('kbd')
+      kbd.textContent = specificKey
+      div.appendChild(kbd)
+      button = document.createElement('button')
+      button.textContent = '编辑'
+      button.id = specificKey
+      kbd.appendChild(button)
+      button.onclick = function (e) {
+        newweb = prompt('请输入网址')
+        webs[e.target.id] = newweb
+        localStorage.setItem('newWeb', JSON.stringify(webs))
+      }
+      index2 += 1
+    }
+    index += 1
+  }
+  document.onkeypress = function (e) {
+    key = e.key
+    window.open(webs[key], '_blank')
+  }
+</script>
+
+</html>
