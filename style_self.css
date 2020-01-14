@@ -7,8 +7,17 @@ header{
   text-align: center;
   margin-bottom: 50px;
 }
+body{
+  height: 100vh;
+  background: grey url(./wall.jpg) no-repeat center center;
+  background-size: cover;
+}
 main{
+  height: inherit;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 div:nth-child(2){
   margin-left: 1em;
@@ -37,4 +46,29 @@ kbd button{
 }
 kbd:hover button{
   display: inline-block;
+}
+.key {
+  width: 80px;
+  height: 60px;
+  background: linear-gradient(to bottom, #292929 0%, #111111 100%);
+  border: 1px solid #373737;
+  color: #c5c5c5;
+  border-radius: 7px;
+  box-shadow: 0 0 0 1px #1a1b1c, 0 0 0 2px #1f2020, 0 2px 0 1px #080808;
+  margin: 0 5px;
+  font-size: 16px;
+  font-family: Helvetica;
+  position: relative;
+}
+img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10px;
+  bottom: 5px;
+}
+.text{
+position: absolute;
+left: 10px;
+top: -35px;
 }
